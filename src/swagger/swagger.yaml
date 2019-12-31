@@ -54,7 +54,7 @@ paths:
       parameters:
       - name: "empId"
         in: "path"
-        description: "ID of pet to return"
+        description: "ID of employee to return"
         required: true
         type: "integer"
         format: "int64"
@@ -76,7 +76,7 @@ paths:
       parameters:
       - name: "empId"
         in: "path"
-        description: "Pet id to delete"
+        description: "Employee id to delete"
         required: true
         type: "integer"
         format: "int64"
@@ -98,7 +98,7 @@ paths:
       parameters:
       - name: "empId"
         in: "path"
-        description: "Pet id to delete"
+        description: "Employee id"
         required: true
         type: "integer"
         format: "int64"
