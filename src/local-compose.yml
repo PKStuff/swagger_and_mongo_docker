@@ -1,0 +1,17 @@
+version: '3.0'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    command: mongod --port 27017 --bind_ip 0.0.0.0
+  swagger:
+    image: sample:latest
+    ports:
+      - '8084:8084'
+    volumes:
+      - .:/usr/src/app
+    links:
+      - mongo:mongo
+    depends_on:
+      - mongo

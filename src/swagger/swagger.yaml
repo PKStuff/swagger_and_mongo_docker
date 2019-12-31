@@ -1,0 +1,116 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Employee server."
+  version: "1.0.0"
+  title: "Swagger Employee Database"
+schemes:
+- "http"
+paths:
+  /employee:
+    post:
+      tags:
+      - "employee"
+      summary: "Add a new employee to the database"
+      description: ""
+      operationId: "api.Employee.addEmp"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "empId"
+        type: "integer"
+        description: "Employee object that needs to be added to the database"
+        required: true
+      - in: "query"
+        name: "name"
+        type: "string"
+        description: "Employee object that needs to be added to the database"
+        required: true
+      responses:
+        405:
+          description: "Invalid input"
+    get:
+      tags:
+      - "employee"
+      summary: "Get all employees from database"
+      description: ""
+      operationId: "api.Employee.getAllEmp"
+      produces:
+      - "application/json"
+      responses:
+        405:
+          description: "Invalid input"
+  /employee/{empId}:
+    get:
+      tags:
+      - "employee"
+      summary: "Find employee by ID"
+      description: "Returns a single employee"
+      operationId: "api.Employee.getEmpById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "empId"
+        in: "path"
+        description: "ID of pet to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Employee not found"
+    delete:
+      tags:
+      - "employee"
+      summary: "Deletes a employee"
+      description: ""
+      operationId: "api.Employee.deleteEmp"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "empId"
+        in: "path"
+        description: "Pet id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Employee not found"
+    put:
+      tags:
+      - "employee"
+      summary: "Update an existing employee"
+      description: ""
+      operationId: "api.Employee.updateEmployee"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "empId"
+        in: "path"
+        description: "Pet id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      - in: "query"
+        name: "name"
+        type: "string"
+        description: "Employee object that needs to be added to the database"
+        required: true
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "employee not found"
+        405:
+          description: "Validation exception"
